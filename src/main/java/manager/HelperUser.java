@@ -36,7 +36,7 @@ public class HelperUser extends HelperBase {
         wd.findElement(By.xpath("//span[normalize-space()='sign in']")).click();
 
     }
-    public void openloginFormForEmployerButton() {
+    public void openLoginFormForEmployerButton() {
         wd.navigate().to("https://cv-bank-new.web.app/employer");
         wd.findElement(By.xpath("//span[normalize-space()='sign in']")).click();
 
@@ -45,6 +45,10 @@ public class HelperUser extends HelperBase {
         type(By.xpath("(//input[@id='email'])[2]"), email);
         type(By.xpath("(//input[@id='password'])[2]"), password);
 
+    }
+    public void openLoginFormHireNowButton(){
+        wd.navigate().to("https://cv-bank-new.web.app/employer");
+        wd.findElement(By.xpath("//span[normalize-space()='sign in']")).click();
     }
 
 
