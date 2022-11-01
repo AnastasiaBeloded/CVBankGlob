@@ -31,4 +31,9 @@ public class HelperBase {
         public void navigate(String url){
         wd.navigate().to(url);
         }
+    public boolean isElementPresent(By locator){
+        return wd.findElements(locator).size()>0;
+
     }
+    }
+
