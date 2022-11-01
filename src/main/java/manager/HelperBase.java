@@ -35,5 +35,8 @@ public class HelperBase {
         return wd.findElements(locator).size()>0;
 
     }
+    public void close(){
+        wd.findElement(By.xpath("//mat-icon[normalize-space()='close']")).click();
+    }
     }
 

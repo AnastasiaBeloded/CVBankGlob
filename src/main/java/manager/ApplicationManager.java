@@ -8,6 +8,7 @@ import java.time.Duration;
 public class ApplicationManager {
     WebDriver wd;
     HelperUser helperUser;
+    HelperCv helperCv;
 
     public void init() {
         wd = new ChromeDriver();
@@ -15,6 +16,7 @@ public class ApplicationManager {
         wd.manage().window().maximize();
         wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         helperUser=new HelperUser(wd);
+        helperCv = new HelperCv(wd);
     }
 
 
@@ -25,5 +27,8 @@ public class ApplicationManager {
 
     public HelperUser getHelperUser() {
         return helperUser;
+    }
+    public HelperCv getHelperCv(){
+        return helperCv;
     }
 }
