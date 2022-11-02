@@ -1,3 +1,4 @@
+import manager.MyDataProvider;
 import models.CV;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -9,7 +10,6 @@ public class CreateCv extends TestBase{
             app.getHelperUser().logIn();
         }
     }
-
 
     @Test
     public void createCvTest(){
@@ -58,7 +58,38 @@ public class CreateCv extends TestBase{
         CV cvLinks = CV.builder().link("winston.com").build();
         app.getHelperCv().fillLinksForm(cvLinks);
         app.getHelperCv().saveCv();
+        app.getHelperUser().clickOnDashBoard();
 
+    }
+    @Test(dataProvider = "dataCreateCv",dataProviderClass = MyDataProvider.class)
+    public void createCvTestDataProvider(CV cv){
+        app.getHelperCv().CreateCv();
+        app.getHelperCv().fillHeaderForm(cv);
+        app.getHelperCv().fillSummaryForm(cv);
+        app.getHelperCv().fillRelocationForm(cv);
+        app.getHelperCv().fillShortDescriptionForm(cv);
+        app.getHelperCv().fillSkillsForm(cv);
+        app.getHelperCv().fillExperienceForm(cv);
+        app.getHelperCv().fillEducationForm(cv);
+        app.getHelperCv().fillOtherForm(cv);
+        app.getHelperCv().fillLinksForm(cv);
+        app.getHelperCv().saveCv();
+        app.getHelperUser().clickOnDashBoard();
+    }
+    @Test(dataProvider = "dataCreateCv2",dataProviderClass = MyDataProvider.class)
+    public void createCvTestDataProvider2(CV cv){
+        app.getHelperCv().CreateCv();
+        app.getHelperCv().fillHeaderForm(cv);
+        app.getHelperCv().fillSummaryForm(cv);
+        app.getHelperCv().fillRelocationForm(cv);
+        app.getHelperCv().fillShortDescriptionForm(cv);
+        app.getHelperCv().fillSkillsForm(cv);
+        app.getHelperCv().fillExperienceForm(cv);
+        app.getHelperCv().fillEducationForm(cv);
+        app.getHelperCv().fillOtherForm(cv);
+        app.getHelperCv().fillLinksForm(cv);
+        app.getHelperCv().saveCv();
+        app.getHelperUser().clickOnDashBoard();
     }
 
 }

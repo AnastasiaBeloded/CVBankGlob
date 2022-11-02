@@ -124,11 +124,17 @@ public class HelperUser extends HelperBase {
                         (wd.findElement(By.xpath("//span[@class='ng-star-inserted']")),
                                 "Wrong email format"));
     }
-    public boolean isWrongPasswordFormat(){
+    public boolean isWrongPasswordFormat() {
         return new WebDriverWait(wd, Duration.ofSeconds(5)).until(ExpectedConditions
                 .textToBePresentInElement
                         (wd.findElement(By.xpath("//span[@class='ng-star-inserted']")),
                                 "Password length should be minimum 8 symbols"));
+
+    }
+    public void clickOnDashBoard(){
+        pause(5000);
+        wd.findElement(By.xpath("//button[@class='mat-focus-indicator " +
+                "dashboard-btn mat-button mat-button-base ng-star-inserted']//span[@class='mat-button-wrapper']")).click();
     }
 
 
