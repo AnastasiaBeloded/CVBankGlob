@@ -12,7 +12,7 @@
 
         <classes>
 
-            <class name="tests.RegistrationTestsSeeker"></class>
+            <class name="tests.RegistrationTestsSeeker"/>
         </classes>
     </test>
 

@@ -4,10 +4,10 @@
     <test name="testng" >
         <classes>
             <class name="tests.LoginTestSeeker" />
-            <class name="tests.RegistrationTestsEmployer"></class>
-            <class name="tests.LoginTestEmployer"></class>
-            <class name="tests.RegistrationTestsSeeker"></class>
-            <class name="tests.CreateCv"></class>
+            <class name="tests.RegistrationTestsEmployer"/>
+            <class name="tests.LoginTestEmployer"/>
+            <class name="tests.RegistrationTestsSeeker"/>
+            <class name="tests.CreateCv"/>
 
         </classes>
     </test>

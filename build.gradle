@@ -10,7 +10,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.seleniumhq.selenium:selenium-java:4.5.0'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.2.2'
     implementation 'org.testng:testng:7.6.1'
 
     compileOnly 'org.projectlombok:lombok:1.18.24'
@@ -23,8 +23,8 @@ dependencies {
 }
 
 test {
-    useTestNG()
-}
+    useTestNG()}
+
 task reg(type:Test) {
     useTestNG() {
 
