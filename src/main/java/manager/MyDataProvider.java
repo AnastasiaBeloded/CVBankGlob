@@ -1,6 +1,7 @@
 package manager;
 
 import models.CV;
+import models.EmployerUser;
 import org.testng.annotations.DataProvider;
 
 import java.io.BufferedReader;
@@ -13,7 +14,7 @@ import java.util.List;
 
 public class MyDataProvider {
     @DataProvider
-    public Iterator<Object[]> dataCreateCv() throws IOException {
+    public static Iterator<Object[]> dataCreateCv() throws IOException {
         List<Object[]> list = new ArrayList<>();
         BufferedReader reader = new BufferedReader(new BufferedReader(new FileReader("src/test/resources/cv.csv")));
         String line = reader.readLine();
@@ -55,7 +56,7 @@ public class MyDataProvider {
         return list.listIterator();
     }
     @DataProvider
-    public Iterator<Object[]> dataCreateCv2() throws IOException {
+    public static Iterator<Object[]> dataCreateCv2() throws IOException {
         List<Object[]> list = new ArrayList<>();
         BufferedReader reader = new BufferedReader(new BufferedReader(new FileReader("src/test/resources/newCV.csv")));
         String line = reader.readLine();
@@ -95,5 +96,34 @@ public class MyDataProvider {
 
         }
         return list.listIterator();
+    }
+    @DataProvider
+    public static Iterator<Object[]> dataRegistration() throws IOException {
+        List<Object[]> list=new ArrayList<>();
+        BufferedReader reader = new BufferedReader(new BufferedReader(new FileReader("src/test/resources/registration.csv")));
+        String line = reader.readLine();
+        while (line!=null){
+            String[] split = line.split(",");
+            list.add(new Object[]{EmployerUser.builder()
+                    .companyName(split[0])
+                    .companyWebsite(split[1])
+                    .country(split[2])
+                    .city(split[3])
+                    .street(split[4])
+                    .house(split[5])
+                    .postcode(split[6])
+                    .companyPhone(split[7])
+                    .applicantName(split[8])
+                    .applicantLastName(split[9])
+                    .position(split[10])
+                    .phone(split[11])
+                    .corporativeEmail(split[12])
+                    .password(split[13])
+                    .confirmPassword(split[14])
+                    .build()});
+            line = reader.readLine();
+        }
+
+        return list.iterator();
     }
 }

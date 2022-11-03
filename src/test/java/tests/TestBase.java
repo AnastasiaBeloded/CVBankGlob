@@ -1,13 +1,14 @@
+package tests;
+
 import manager.ApplicationManager;
-import org.testng.annotations.AfterMethod;
+import org.openqa.selenium.remote.Browser;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
-import java.time.Duration;
+
 
 public class TestBase {
-   protected static  ApplicationManager app = new ApplicationManager();
+    static ApplicationManager app = new ApplicationManager(System.getProperty("browser", Browser.CHROME.browserName()));
 
 
 

@@ -10,18 +10,42 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.seleniumhq.selenium:selenium-java:4.2.2'
-    implementation 'org.testng:testng:7.5'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.5.0'
+    implementation 'org.testng:testng:7.6.1'
 
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
 
     testCompileOnly 'org.projectlombok:lombok:1.18.24'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
-    implementation 'ch.qos.logback:logback-classic:1.2.8'
+    implementation 'ch.qos.logback:logback-classic:1.4.4'
 
 }
 
 test {
     useTestNG()
+}
+task reg(type:Test) {
+    useTestNG() {
+
+        def groups = System.getProperty('groups')
+        if (groups != null) {
+            includeGroups groups
+        }
+
+        def suite = System.getProperty('suite', '')
+        if (suite.equals('login')) {
+            suites 'src/test/resources/login.xml'//  ./gradlew -Dsuite=login reg
+        } else if (suite.equals('reg')) {
+            suites 'src/test/resources/reg.xml'// ./gradlew clean -Pbrowser=firefox -Dsuite=reg reg
+
+        } else {
+            suites 'src/test/resources/testng.xml'
+        }
+
+
+        if (project.hasProperty('browser')) {
+            systemProperty 'browser', "${browser}"
+        }
+    }
 }
